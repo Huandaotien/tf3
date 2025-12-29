@@ -10,8 +10,14 @@ include_directories(include ${console_bridge_INCLUDE_DIRS})
 # export user definitions
 
 #CPP Libraries
-add_library(tf3 src/cache.cpp src/buffer_core.cpp src/static_cache.cpp)
+add_library(tf3 src/cache.cpp src/buffer_core.cpp src/static_cache.cpp src/tf3_c_api.cpp)
 target_link_libraries(tf3 ${Boost_LIBRARIES} ${console_bridge_LIBRARIES})
+
+# Public include directory for consumers and for installing headers
+target_include_directories(tf3 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# When building the library, export C API symbols
+target_compile_definitions(tf3 PRIVATE TF3_C_API_EXPORTS)
 
 add_executable(simple_tf3_example examples/simple_tf3_example.cpp)
 target_include_directories(simple_tf3_example PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
