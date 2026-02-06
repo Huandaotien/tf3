@@ -24,6 +24,7 @@ target_include_directories(simple_tf3_example PRIVATE ${CMAKE_CURRENT_SOURCE_DIR
 target_link_libraries(simple_tf3_example PRIVATE tf3 pthread ${console_bridge_LIBRARIES})
 
 install(TARGETS tf3
+  EXPORT ${PROJECT_NAME}Targets
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
