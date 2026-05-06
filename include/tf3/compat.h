@@ -10,13 +10,13 @@ namespace tf3 {
 // Minimal header/message equivalents owned by tf3 (no ros:: or geometry_msgs::)
 struct HeaderMsg
 {
-  uint32_t seq;
+  uint32_t seq = 0;
   Time stamp;
   std::string frame_id;
 };
 
-struct Vector3Msg { double x, y, z; };
-struct QuaternionMsg { double x, y, z, w; };
+struct Vector3Msg { double x = 0, y = 0, z = 0; };
+struct QuaternionMsg { double x = 0, y = 0, z = 0, w = 1; };
 struct TransformMsg { Vector3Msg translation; QuaternionMsg rotation; };
 
 struct TransformStampedMsg
