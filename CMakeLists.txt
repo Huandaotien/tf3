@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.10...3.28)
 
 project(tf3)
+
+# See top-level CMakeLists.txt: Boost 1.71 needs the legacy FindBoost path.
+if(POLICY CMP0167)
+  cmake_policy(SET CMP0167 OLD)
+endif()
 
 find_package(console_bridge REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system thread)
