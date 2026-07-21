@@ -14,8 +14,8 @@ subject to the following restrictions:
 
 
 
-#ifndef GEN_MINMAX_H
-#define GEN_MINMAX_H
+#ifndef GEN_MINMAX_TF3_H
+#define GEN_MINMAX_TF3_H
 
 template <class T>
 TF3SIMD_FORCE_INLINE const T& tf3Min(const T& a, const T& b) 
@@ -30,7 +30,7 @@ TF3SIMD_FORCE_INLINE const T& tf3Max(const T& a, const T& b)
 }
 
 template <class T>
-TF3SIMD_FORCE_INLINE const T& GEN_clamped(const T& a, const T& lb, const T& ub) 
+TF3SIMD_FORCE_INLINE const T& tf3GEN_clamped(const T& a, const T& lb, const T& ub) 
 {
 	return a < lb ? lb : (ub < a ? ub : a); 
 }
@@ -54,7 +54,7 @@ TF3SIMD_FORCE_INLINE void tf3SetMax(T& a, const T& b)
 }
 
 template <class T>
-TF3SIMD_FORCE_INLINE void GEN_clamp(T& a, const T& lb, const T& ub) 
+TF3SIMD_FORCE_INLINE void tf3GEN_clamp(T& a, const T& lb, const T& ub) 
 {
 	if (a < lb) 
 	{
